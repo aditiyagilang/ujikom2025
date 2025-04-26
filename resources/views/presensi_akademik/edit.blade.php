@@ -15,7 +15,7 @@
                 <option value="Rabu" {{ $presensi->hari == 'Rabu' ? 'selected' : '' }}>Rabu</option>
                 <option value="Kamis" {{ $presensi->hari == 'Kamis' ? 'selected' : '' }}>Kamis</option>
                 <option value="Jumat" {{ $presensi->hari == 'Jumat' ? 'selected' : '' }}>Jumat</option>
-                <option value="Sabtu" {{ $presensi->hari == 'Sabtu' ? 'selected' : '' }}>Sabtu</option>
+                
             </select>
         </div>
         <div class="mb-3">

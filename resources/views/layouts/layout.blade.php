@@ -79,7 +79,11 @@
     <div class="appbar">
         <h5>Selamat Datang</h5>
         <div>
-            <button class="btn btn-primary">Logout</button>
+        <form method="POST" action="{{ route('logout') }}">
+    @csrf
+    <button type="submit" class="btn btn-outline-light">Logout</button>
+</form>
+
         </div>
     </div>
 

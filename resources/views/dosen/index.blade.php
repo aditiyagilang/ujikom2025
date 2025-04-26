@@ -4,7 +4,12 @@
 <div class="container">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h2 class="fw-bold text-primary">Data Dosen</h2>
+        <div>
+            <a href="{{ route('cetak.dosen') }}" class="btn btn-outline-primary shadow-sm me-2">
+                    Download PDF
+                </a>
         <a href="{{ route('dosen.create') }}" class="btn btn-primary shadow-sm">+ Tambah Dosen</a>
+</div>
     </div>
 
     @if(session('success'))

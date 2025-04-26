@@ -4,7 +4,12 @@
 <div class="container">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h2 class="fw-bold text-primary">Data Golongan</h2>
-        <a href="{{ route('golongan.create') }}" class="btn btn-primary shadow-sm">+ Tambah Golongan</a>
+        <div>
+            <a href="{{ route('cetak.golongan') }}" class="btn btn-outline-primary shadow-sm me-2">
+                    Download PDF
+                </a>
+            <a href="{{ route('golongan.create') }}" class="btn btn-primary shadow-sm">+ Tambah Golongan</a>
+        </div>
     </div>
 
     @if(session('success'))

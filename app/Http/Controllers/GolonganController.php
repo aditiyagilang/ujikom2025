@@ -10,7 +10,7 @@ class GolonganController extends Controller
     public function index()
     {
         $golongan = Golongan::all();
-        return view('golongan', compact('golongan'));
+        return view('golongan.index', compact('golongan'));
     }
 
     public function store(Request $request)

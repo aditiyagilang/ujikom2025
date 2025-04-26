@@ -17,8 +17,14 @@ class DashboardController extends Controller
         $jumlahMatakuliah = Matakuliah::count();
         $jumlahGolongan = Golongan::count();
 
-        $labelsGolongan = Golongan::pluck('nama_Gol')->toArray();
-        $dataGolongan = Golongan::withCount('mahasiswa')->get()->pluck('mahasiswa_count')->toArray();
+        $golonganData = Golongan::withCount('mahasiswa')->get();
+        $labelsGolongan = $golonganData->pluck('nama_Gol')->toArray();
+        $dataGolongan = $golonganData->pluck('mahasiswa_count')->toArray();
+
+        if (empty($labelsGolongan)) {
+            $labelsGolongan = ['Belum Ada Data'];
+            $dataGolongan = [0];
+        }
 
         $dataPresensi = [
             PresensiAkademik::where('status_kehadiran', 'Hadir')->count(),
@@ -26,6 +32,10 @@ class DashboardController extends Controller
             PresensiAkademik::where('status_kehadiran', 'Sakit')->count(),
             PresensiAkademik::where('status_kehadiran', 'Alpa')->count(),
         ];
+
+        if (array_sum($dataPresensi) === 0) {
+            $dataPresensi = [0, 0, 0, 0];
+        }
 
         return view('dashboard', [
             'jumlahMahasiswa' => $jumlahMahasiswa,
